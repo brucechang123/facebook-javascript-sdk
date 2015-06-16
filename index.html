@@ -7,7 +7,7 @@
       appId      : '1607536729515141', // App ID
       channelUrl : 'https://github.com/brucechang123/facebook-javascript-sdk/blob/gh-pages/channel.html', // Channel File
       status     : true, // check login status
-      cookie     : false, // enable cookies to allow the server to access the session
+      cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
     });
     
@@ -56,7 +56,6 @@
 
 	  var str="<b>Name</b> : "+response.name+"<br>";
 	  	  str +="<b>Link: </b>"+response.link+"<br>";
-	  	  str +="<b>Username:</b> "+response.username+"<br>";
 	  	  str +="<b>id: </b>"+response.id+"<br>";
 	  	  str +="<b>Email:</b> "+response.email+"<br>";
 	  	  str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
