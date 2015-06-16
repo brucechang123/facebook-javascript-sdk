@@ -86,7 +86,7 @@
                 }*/
                 console.log(response.data[0].id);
                 FB.api("/" + response.data[0].id + "/photos", function(response){
-                	//console.log(response.data[0].link);
+                	console.log(response.data[0].link);
                 	var str="<br/><b>Pic</b> : <img src='"+response.data[0].link+"'/>";
 	  		  document.getElementById("status").innerHTML+=str;
                 });
