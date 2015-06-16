@@ -86,12 +86,14 @@
                 }*/
                 console.log(response.data[0].id);
                 FB.api("/" + response.data[0].id + "/photos", function(response){
-                	console.log(response.data[0].id);
+                	//console.log(response.data[0].link);
+                	var str="<br/><b>Pic</b> : <img src='"+response.data[0].link+"'/>";
+	  		  document.getElementById("status").innerHTML+=str;
                 });
                 //var d = JSON.stringify(response);
                 //var d2 = JSON.parse(d);
                 //console.log(d2.paging.cursors.after);
-                document.getElementById("status").innerHTML += "There are "+ counter +" albums in your Facebook profile";
+                //document.getElementById("status").innerHTML += "There are "+ counter +" albums in your Facebook profile";
 	  });
 	}
 	function Logout()
