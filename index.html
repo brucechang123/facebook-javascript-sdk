@@ -53,7 +53,6 @@
 
   function getUserInfo() {
 	    FB.api('/me', function(response) {
-console.log(JSON.stringify(response));
 	  var str="<b>Name</b> : "+response.name+"<br>";
 	  	  str +="<b>Link: </b>"+response.link+"<br>";
 	  	  str +="<b>id: </b>"+response.id+"<br>";
@@ -86,7 +85,7 @@ console.log(JSON.stringify(response));
                         counter++;
                 	
                 }*/
-                //console.log(JSON.stringify(response));
+                console.log(JSON.stringify(response.data));
                 document.getElementById("status").innerHTML += "There are "+ counter +" albums in your Facebook profile";
 	  });
 	}
