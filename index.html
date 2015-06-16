@@ -78,16 +78,16 @@
 	}
 	function getAlbum()
 	{
-		var counter = 0;
-	  	FB.api('/me/albums', function(response) {
-	  	var d=response.data;
-                for (var i=0, l=d.length; i<l; i++)
+		//var counter = 0;
+	  	//FB.api('/me/albums', function(response) {
+	  	//var d=response.data;
+                /*for (var i=0, l=d.length; i<l; i++)
                 {
                 	addOption(response["data"][i].name,response["data"][i].id);
                         counter++;
                 	
-                }
-                	document.getElementById("status").innerHTML += "There are "+ "20" +" albums in your Facebook profile";
+                }*/
+                document.getElementById("status").innerHTML += "There are "+ "20" +" albums in your Facebook profile";
 	  });
 	}
 	function Logout()
