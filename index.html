@@ -84,6 +84,7 @@
                         counter++;
                 	
                 }*/
+                console.log(response.paging.cursors.after);
                 var d = JSON.stringify(response);
                 var d2 = JSON.parse(d);
                 console.log(d2.paging.cursors.after);
