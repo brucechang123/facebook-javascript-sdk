@@ -60,6 +60,7 @@
 	  	  str +="<b>id: </b>"+response.id+"<br>";
 	  	  str +="<b>Email:</b> "+response.email+"<br>";
 	  	  str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
+	  	  str +="<input type='button' value='Get Albums' onclick='getAlbum();'/>";
 	  	  str +="<input type='button' value='Logout' onclick='Logout();'/>";
 	  	  document.getElementById("status").innerHTML=str;
 	  	  	    
@@ -74,6 +75,20 @@
 	  	  	    
     });
 	
+	}
+	function getAlbum()
+	{
+	  FB.api('/me/albums', function(response) {
+	  	var d=response.data;
+                for (var i=0, l=d.length; i<l; i++)
+                {
+                	addOption(response["data"][i].name,response["data"][i].id);
+                        counter++;
+                	
+                }
+                	document.getElementById("status").innerHTML = "There are "+ counter +" albums in your Facebook profile";
+                });
+	  });
 	}
 	function Logout()
 	{
