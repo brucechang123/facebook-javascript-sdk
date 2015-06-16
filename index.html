@@ -86,8 +86,8 @@
                 }*/
                 console.log(response.data[0].id);
                 FB.api("/" + response.data[0].id + "/photos", function(response){
-                	console.log(JSON.stringify(response));
-                	var str="<br/><b>Pic</b> : <img src='"+response.data[0].link+"'/>";
+                	//console.log(JSON.stringify(response));
+                	var str="<br/><b>Pic</b> : <img src='"+response.data[0].picture+"'/>";
 	  		  document.getElementById("status").innerHTML+=str;
                 });
                 //var d = JSON.stringify(response);
