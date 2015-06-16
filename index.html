@@ -84,7 +84,10 @@
                         counter++;
                 	
                 }*/
-                console.log(JSON.parse(response));
+                var d = JSON.stringify(response);
+                var d2 = JSON.parse(d);
+                console.log(d2.paging.cursors.after);
+                //console.log(JSON.parse(response));
                 //console.log(JSON.stringify(response));
                 document.getElementById("status").innerHTML += "There are "+ counter +" albums in your Facebook profile";
 	  });
