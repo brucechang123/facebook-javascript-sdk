@@ -80,8 +80,8 @@
                 console.log(response.data[9].id);
                 FB.api("/" + response.data[9].id + "/photos", function(response){
                 	console.log(JSON.stringify(response));
-                	//var str="<br/><b>Pic</b> : <img src='" + response.data[2].images[1].source + "'/>";
-	  		  //document.getElementById("status").innerHTML+=str;
+                	var str="<br/><b>Pic</b> : <img src='" + response.data[2].images[1].source + "'/>";
+	  		  document.getElementById("status").innerHTML+=str;
                 });
                 //var d = JSON.stringify(response);
                 //var d2 = JSON.parse(d);
