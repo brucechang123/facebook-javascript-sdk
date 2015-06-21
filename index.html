@@ -92,10 +92,11 @@
                                 console.log("1");
                             }
                         }*/
+                        var str = "<br/><b>Pic</b> : <img src='" + response.data[j].images[1].source + "'/>";
+                        document.getElementById("status").innerHTML += str;
                         console.log(response.data[j].tags.length);
                     }
-                    //var str = "<br/><b>Pic</b> : <img src='" + response.data[0].images[1].source + "'/>";
-                    //document.getElementById("status").innerHTML += str;
+                    
                     //console.log(response.data.length);
                 });
             }
