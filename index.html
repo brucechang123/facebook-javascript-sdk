@@ -85,7 +85,7 @@
             for (var i = 0; i < response.data.length; i++) {
                 FB.api("/" + response.data[i].id + "/photos", function(response){
                     for (var j = 0; j < response.data.length; j++){
-                        if (response.data[j].hasOwnProperty(tags) == false)
+                        if (response.data[j].hasOwnProperty('tags') == false)
                             console.log("!");
                         /*for (var k = 0; k < response.data[j].tags.length; k++){
                             if (response.data[j].tags[k].name == friendName){
