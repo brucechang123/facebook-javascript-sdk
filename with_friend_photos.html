@@ -16,8 +16,8 @@
  
     //將值再度分開
     var vars = decodeURI(temp[1]);
-    alert(""+temp[1]+"");
-    
+    alert("" + vars + "");
+    document.getElementById("message").innerHTML += vars;
     //一一顯示出來
     //for (var i = 0; i < vars.length; i++) {
      //String str = decodeURI(temp[1]);
@@ -32,5 +32,9 @@
   <button onclick="show()">
    two
   </button>
+  </div>
+   <br/><br/><br/><br/><br/>
+   <div id="message">
+    Photos:<br/>
  </body>
 </html>
