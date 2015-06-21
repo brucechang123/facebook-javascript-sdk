@@ -56,11 +56,19 @@
             //str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
             //str +="<input type='button' value='Get My Photo' onclick='getAlbum();'/>";
             var str = "<input type='text' id='StringTextBox'/>";
-            str += "<input type='button' value='取得共同標籤相片' onclick='getFriendPhoto();'/>";
+            str += "<br/><input type='button' value='取得共同標籤相片' onclick='getFriendPhoto();'/>";
+            str += "<br/><input type='button' value='清除照片' onclick='clearScreen();'/>";
             //str +="<input type='button' value='Logout' onclick='Logout();'/>";
             document.getElementById("status").innerHTML = str;
 
         });
+    }
+    
+    function clearScreen(){
+        var str = "<input type='text' id='StringTextBox'/>";
+        str += "<br/><input type='button' value='取得共同標籤相片' onclick='getFriendPhoto();'/>";
+        str += "<br/><input type='button' value='清除照片' onclick='clearScreen();'/>";
+        document.getElementById("status").innerHTML = str;
     }
 
     function getPhoto() {
