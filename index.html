@@ -84,11 +84,13 @@
         FB.api('/me/albums', function(response) {
             for (var i = 0; i < response.data.length; i++) {
                 FB.api("/" + response.data[i].id + "/photos", function(response){
-                    for (var j = 0; j < response.data[i].length; j++){
-                        if (response.data[i].tags[j].name == friendName){
-                            //var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
-                            //document.getElementById("status").innerHTML += str;
-                            console.log("1");
+                    for (var j = 0; j < response.data.length; j++){
+                        for (var k = 0; k < response.data[j].tags.length; k++){
+                            if (response.data[j].tags[k].name == friendName){
+                                 //var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
+                                //document.getElementById("status").innerHTML += str;
+                                console.log("1");
+                            }
                         }
                     }
                 });
