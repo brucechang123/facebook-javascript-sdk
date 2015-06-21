@@ -87,7 +87,7 @@
 		//window.open('with_friend_photos.html', 'with_friend_photos', config='height=500,width=500');
 		FB.api('/me/albums', function(response)){
 			for (int i = 0; i < response.data.length; i++){
-				console.log(data[i].id);
+				console.log(response.data[i].id);
 			}
 		}
 	}
