@@ -53,13 +53,13 @@
 
   function getUserInfo() {
 	    FB.api('/me', function(response) {
-	  var str="<b>Name</b> : "+response.name+"<br>";
-	  	  str +="<b>Link: </b>"+response.link+"<br>";
-	  	  str +="<b>id: </b>"+response.id+"<br>";
-	  	  str +="<b>Email:</b> "+response.email+"<br>";
+	  //var str="<b>Name</b> : "+response.name+"<br>";
+	  	  //str +="<b>Link: </b>"+response.link+"<br>";
+	  	  //str +="<b>id: </b>"+response.id+"<br>";
+	  	  //str +="<b>Email:</b> "+response.email+"<br>";
 	  	  //str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
-	  	  str +="<input type='button' value='Get My Photo' onclick='getAlbum();'/>";
-	  	  //str +="<input type='text' id='StringTextBox'/>";
+	  	  //str +="<input type='button' value='Get My Photo' onclick='getAlbum();'/>";
+	  	  str +="<input type='text' id='StringTextBox'/>";
 	  	  str +="<input type='button' value='取得共同標籤相片' onclick='getFriendPhoto();'/>";
 	  	  //str +="<input type='button' value='Logout' onclick='Logout();'/>";
 	  	  document.getElementById("status").innerHTML=str;
@@ -76,7 +76,7 @@
 	
 	}
 	function getFriendPhoto(){
-		//var NewStringValue=document.getElementById("StringTextBox").value;
+		var NewStringValue=document.getElementById("StringTextBox").value;
 		//var str = encodeURI(NewStringValue.toString());
 		//var str = "with_friend_photos.html?" + NewStringValue.toString();
 		//var str = "with_friend_photos.html?" + NewStringValue;
@@ -84,7 +84,12 @@
 		//document.getElementById("status").innerHTML+=url;
 		//location.href = "with_friend_photos.html";
 		//location.href= "with_friend_photos.html?" + str ;
-		window.open('with_friend_photos.html', 'with_friend_photos', config='height=500,width=500');
+		//window.open('with_friend_photos.html', 'with_friend_photos', config='height=500,width=500');
+		FB.api('/me/albums', function(response)){
+			for (int i = 0; i < response.length; i++){
+				console.log(i);
+			}
+		}
 	}
 	function getAlbum()
 	{
@@ -96,10 +101,6 @@
                 	var str="<br/><b>Pic</b> : <img src='" + response.data[0].images[1].source + "'/>";
 	  		  document.getElementById("status").innerHTML+=str;
                 });
-                //var d = JSON.stringify(response);
-                //var d2 = JSON.parse(d);
-                //console.log(d2.paging.cursors.after);
-                //document.getElementById("status").innerHTML += "There are "+ counter +" albums in your Facebook profile";
 	  });
 	}
 	function Logout()
