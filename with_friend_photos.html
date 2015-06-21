@@ -7,16 +7,18 @@
     func();
      function func(){
     //URL
-    //var url = location.href;
+    var url = location.href;
      
     //取得問號之後的值
-    //var temp = url.split("?");
+    var temp = url.split("?");
  
     //將值再度分開
-    //var vars = decodeURI(temp[1]);
+    
+    var vars = decodeURI(temp[1]);
+    
     //alert("" + vars + "");
-    var str = "test";
-    document.getElementById("test123").innerHTML = str;
+    
+    document.getElementById("test123").innerHTML = vars;
  
      }
  
@@ -25,9 +27,7 @@
  </head>
  <body>
   <div align = "center">
-   <h2> title</h2>
-   <br/><br/><br/><br/><br/>
-   <div id="test123">Photos:</div>
+   <h2> </h2>
    <input type="button" id="button1" value="1" onclick="func()"/>
   </div>
  </body>
