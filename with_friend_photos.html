@@ -15,13 +15,14 @@
     var temp = url.split("?");
  
     //將值再度分開
-    var vars = temp[1].split("&");
- 
+    var vars = decodeURI(temp[1]);
+    alert(vars);
+    
     //一一顯示出來
-    for (var i = 0; i < vars.length; i++) {
+    //for (var i = 0; i < vars.length; i++) {
      //String str = decodeURI(temp[1]);
-     alert(temp[1]);
-    };
+     //alert(temp[1]);
+    //};
  
    }
  
