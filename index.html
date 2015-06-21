@@ -58,9 +58,9 @@
 	  	  str +="<b>id: </b>"+response.id+"<br>";
 	  	  str +="<b>Email:</b> "+response.email+"<br>";
 	  	  //str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
-	  	  str +="<input type='button' value='Get Albums' onclick='getAlbum();'/>";
+	  	  str +="<input type='button' value='Get My Photo' onclick='getAlbum();'/>";
 	  	  str +="<input type='text' id='StringTextBox'/>";
-	  	  str +="<input type='button' value='輸入朋友姓名' onclick='getName();'/>";
+	  	  str +="<input type='button' value='輸入朋友姓名' onclick='getFriendPhoto();'/>";
 	  	  //str +="<input type='button' value='Logout' onclick='Logout();'/>";
 	  	  document.getElementById("status").innerHTML=str;
 	  	  	    
@@ -75,8 +75,10 @@
     });
 	
 	}
-	function getName(){
-	
+	function getFriendPhoto(){
+		var NewStringValue=document.getElementById("StringTextBox").value;
+		window.open(' http://tw.yahoo.com ', 'Yahoo', config='height=500,width=500');
+		
 	}
 	function getAlbum()
 	{
