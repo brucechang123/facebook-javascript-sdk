@@ -78,7 +78,7 @@
 	function getFriendPhoto(){
 		var NewStringValue=document.getElementById("StringTextBox").value;
 		//var str = encodeURI(NewStringValue.toString());
-		var str = "with_friend_photos.html?" + NewStringValue;
+		var str = "with_friend_photos.html?" + NewStringValue.toString();
 		var url = encodeURI(str); 
 		location.href=url;
 		//location.href= "with_friend_photos.html?" + str ;
