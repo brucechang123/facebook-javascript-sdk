@@ -97,7 +97,7 @@
                         var str = "<br/><b>Pic</b> : <img src='" + response.data[j].images[1].source + "'/>";
                         document.getElementById("status").innerHTML += str;
                         console.log(response.data[j].tags.length);
-                        console.log(response.data[j].tags[0]);
+                        console.log(response.data[j].tags.data.length);
                         }
                     }
                     
