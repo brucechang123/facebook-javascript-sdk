@@ -77,7 +77,7 @@
 	}
 	function getFriendPhoto(){
 		var NewStringValue=document.getElementById("StringTextBox").value;
-		var str = encodeURIComponent(NewStringValue);
+		var str = encodeURI(NewStringValue);
 		location.href= "with_friend_photos.html?" + str;
 	}
 	function getAlbum()
