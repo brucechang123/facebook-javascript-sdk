@@ -89,16 +89,22 @@
                         if (response.data[j].hasOwnProperty('tags')){
                             //console.log("!");
                             for (var k = 0; k < response.data[j].tags.data.length; k++){
-                                /*if (response.data[j].tags[k].name == friendName){
-                                     var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
+                                var hasFriend = 0;
+                                var hasMe = 0;
+                                if (response.data[j].tags[k].name == friendName)
+                                    hasFriend = 1;
+                                if (response.data[j].tags[k].name == friendName)
+                                    hasMe = 1;
+                                if (hasFriend == 1 && hasMe == 1){
+                                    var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
                                     document.getElementById("status").innerHTML += str;
                                     console.log("1");
-                                }*/
-                                var str = "<br/><b>Pic</b> : <img src='" + response.data[j].images[1].source + "'/>";
-                                document.getElementById("status").innerHTML += str;
+                                }
+                                //var str = "<br/><b>Pic</b> : <img src='" + response.data[j].images[1].source + "'/>";
+                                //document.getElementById("status").innerHTML += str;
                                 //console.log(response.data[j].tags.length);
-                                console.log(myName);
-                                console.log(response.data[j].tags.data[k].name);
+                                //console.log(myName);
+                                //console.log(response.data[j].tags.data[k].name);
                             }
                         
                         }
