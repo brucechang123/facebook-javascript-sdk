@@ -45,9 +45,10 @@
 
 
     }
-
+    var myName;
     function getUserInfo() {
         FB.api('/me', function(response) {
+            myName = response.name;
             //var str="<b>Name</b> : "+response.name+"<br>";
             //str +="<b>Link: </b>"+response.link+"<br>";
             //str +="<b>id: </b>"+response.id+"<br>";
@@ -87,17 +88,18 @@
                     for (var j = 0; j < response.data.length; j++){
                         if (response.data[j].hasOwnProperty('tags')){
                             //console.log("!");
-                        for (var k = 0; k < response.data[j].tags.data.length; k++){
-                            /*if (response.data[j].tags[k].name == friendName){
-                                 var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
+                            for (var k = 0; k < response.data[j].tags.data.length; k++){
+                                /*if (response.data[j].tags[k].name == friendName){
+                                     var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
+                                    document.getElementById("status").innerHTML += str;
+                                    console.log("1");
+                                }*/
+                                var str = "<br/><b>Pic</b> : <img src='" + response.data[j].images[1].source + "'/>";
                                 document.getElementById("status").innerHTML += str;
-                                console.log("1");
-                            }*/
-                            var str = "<br/><b>Pic</b> : <img src='" + response.data[j].images[1].source + "'/>";
-                        document.getElementById("status").innerHTML += str;
-                        console.log(response.data[j].tags.length);
-                        console.log(response.data[j].tags.data[k].name);
-                        }
+                                //console.log(response.data[j].tags.length);
+                                console.log(myName);
+                                console.log(response.data[j].tags.data[k].name);
+                            }
                         
                         }
                     }
