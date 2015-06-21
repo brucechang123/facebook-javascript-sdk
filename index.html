@@ -84,6 +84,7 @@
         //window.open('with_friend_photos.html', 'with_friend_photos', config='height=500,width=500');
         FB.api('/me/albums', function(response) {
             for (var i = 0; i < response.data.length; i++) {
+                console.log("!");
                 FB.api("/" + response.data[i].id + "/photos", function(response){
                     for (var j = 0; j < response.data.length; j++){
                         if (response.data[j].hasOwnProperty('tags')){
@@ -103,7 +104,7 @@
                                 //var str = "<br/><b>Pic</b> : <img src='" + response.data[j].images[1].source + "'/>";
                                 //document.getElementById("status").innerHTML += str;
                                 //console.log(response.data[j].tags.length);
-                                //console.log(myName);
+                                console.log(myName);
                                 //console.log(response.data[j].tags.data[k].name);
                             }
                         
