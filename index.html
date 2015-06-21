@@ -1,135 +1,143 @@
 <html>
+
 <body>
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1607536729515141', // App ID
-      channelUrl : 'https://github.com/brucechang123/facebook-javascript-sdk/blob/gh-pages/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
-    
-    
-	FB.Event.subscribe('auth.authResponseChange', function(response) 
-	{
- 	 if (response.status === 'connected') 
-  	{
-  		document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
-  		//SUCCESS
-  		
-  	}	 
-	else if (response.status === 'not_authorized') 
-    {
-    	document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
+    <div id="fb-root"></div>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1607536729515141', // App ID
+            channelUrl: 'https://github.com/brucechang123/facebook-javascript-sdk/blob/gh-pages/channel.html', // Channel File
+            status: true, // check login status
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true // parse XFBML
+        });
 
-		//FAILED
-    } else 
-    {
-    	document.getElementById("message").innerHTML +=  "<br>Logged Out";
 
-    	//UNKNOWN ERROR
-    }
-	});	
-	
+        FB.Event.subscribe('auth.authResponseChange', function(response) {
+            if (response.status === 'connected') {
+                document.getElementById("message").innerHTML += "<br>Connected to Facebook";
+                //SUCCESS
+
+            } else if (response.status === 'not_authorized') {
+                document.getElementById("message").innerHTML += "<br>Failed to Connect";
+
+                //FAILED
+            } else {
+                document.getElementById("message").innerHTML += "<br>Logged Out";
+
+                //UNKNOWN ERROR
+            }
+        });
+
     };
-    
-   	function Login()
-	{
-	
-		FB.login(function(response) {
-		   if (response.authResponse) 
-		   {
-		    	getUserInfo();
-  			} else 
-  			{
-  	    	 console.log('User cancelled login or did not fully authorize.');
-   			}
-		 },{scope: 'email, user_photos'});
-	
-	
-	}
 
-  function getUserInfo() {
-	    FB.api('/me', function(response) {
-	  //var str="<b>Name</b> : "+response.name+"<br>";
-	  	  //str +="<b>Link: </b>"+response.link+"<br>";
-	  	  //str +="<b>id: </b>"+response.id+"<br>";
-	  	  //str +="<b>Email:</b> "+response.email+"<br>";
-	  	  //str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
-	  	  //str +="<input type='button' value='Get My Photo' onclick='getAlbum();'/>";
-	  	  str +="<input type='text' id='StringTextBox'/>";
-	  	  str +="<input type='button' value='取得共同標籤相片' onclick='getFriendPhoto();'/>";
-	  	  //str +="<input type='button' value='Logout' onclick='Logout();'/>";
-	  	  document.getElementById("status").innerHTML=str;
-	  	  	    
-    });
+    function Login() {
+
+        FB.login(function(response) {
+            if (response.authResponse) {
+                getUserInfo();
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        }, {
+            scope: 'email, user_photos'
+        });
+
+
     }
-	function getPhoto()
-	{
-	  FB.api('/me/picture?type=normal', function(response) {
-		  var str="<br/><b>Pic</b> : <img src='"+response.data.url+"'/>";
-	  	  document.getElementById("status").innerHTML+=str;
-	  	  	    
-    });
-	
-	}
-	function getFriendPhoto(){
-		var NewStringValue=document.getElementById("StringTextBox").value;
-		//var str = encodeURI(NewStringValue.toString());
-		//var str = "with_friend_photos.html?" + NewStringValue.toString();
-		//var str = "with_friend_photos.html?" + NewStringValue;
-		//var url = encodeURI(str); 
-		//document.getElementById("status").innerHTML+=url;
-		//location.href = "with_friend_photos.html";
-		//location.href= "with_friend_photos.html?" + str ;
-		//window.open('with_friend_photos.html', 'with_friend_photos', config='height=500,width=500');
-		FB.api('/me/albums', function(response)){
-			for (int i = 0; i < response.data.length; i++){
-				console.log(response.data[i].id);
-			});
-		}
-	}
-	function getAlbum()
-	{
-		//var counter = 0;
-	  	FB.api('/me/albums', function(response) {
-                console.log(response.data[0].id);
-                FB.api("/" + response.data[0].id + "/photos", function(response){
-                	console.log(JSON.stringify(response));
-                	var str="<br/><b>Pic</b> : <img src='" + response.data[0].images[1].source + "'/>";
-	  		  document.getElementById("status").innerHTML+=str;
-                });
-	  });
-	}
-	function Logout()
-	{
-		FB.logout(function(){document.location.reload();});
-	}
 
-  // Load the SDK asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
+    function getUserInfo() {
+        FB.api('/me', function(response) {
+            //var str="<b>Name</b> : "+response.name+"<br>";
+            //str +="<b>Link: </b>"+response.link+"<br>";
+            //str +="<b>id: </b>"+response.id+"<br>";
+            //str +="<b>Email:</b> "+response.email+"<br>";
+            //str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
+            //str +="<input type='button' value='Get My Photo' onclick='getAlbum();'/>";
+            str += "<input type='text' id='StringTextBox'/>";
+            str += "<input type='button' value='取得共同標籤相片' onclick='getFriendPhoto();'/>";
+            //str +="<input type='button' value='Logout' onclick='Logout();'/>";
+            document.getElementById("status").innerHTML = str;
 
-</script>
-<div align="center">
-<h2>Facebook OAuth Javascript Demo</h2>
+        });
+    }
 
-<div id="status">
- Click on Below Image to start the demo: <br/>
-<img src="http://hayageek.com/examples/oauth/facebook/oauth-javascript/LoginWithFacebook.png" style="cursor:pointer;" onclick="Login()"/>
-</div>
-<br/><br/><br/><br/><br/>
-<div id="message">
-Logs:<br/>
-</div>
+    function getPhoto() {
+        FB.api('/me/picture?type=normal', function(response) {
+            var str = "<br/><b>Pic</b> : <img src='" + response.data.url + "'/>";
+            document.getElementById("status").innerHTML += str;
 
-</div>
+        });
+
+    }
+
+    function getFriendPhoto() {
+        var NewStringValue = document.getElementById("StringTextBox").value;
+        //var str = encodeURI(NewStringValue.toString());
+        //var str = "with_friend_photos.html?" + NewStringValue.toString();
+        //var str = "with_friend_photos.html?" + NewStringValue;
+        //var url = encodeURI(str); 
+        //document.getElementById("status").innerHTML+=url;
+        //location.href = "with_friend_photos.html";
+        //location.href= "with_friend_photos.html?" + str ;
+        //window.open('with_friend_photos.html', 'with_friend_photos', config='height=500,width=500');
+        FB.api('/me/albums', function(response) {
+            for (int i = 0; i < response.data.length; i++) {
+                console.log(response.data[i].id);
+            }
+        });
+    }
+    }
+
+    function getAlbum() {
+        //var counter = 0;
+        FB.api('/me/albums', function(response) {
+            console.log(response.data[0].id);
+            FB.api("/" + response.data[0].id + "/photos", function(response) {
+                console.log(JSON.stringify(response));
+                var str = "<br/><b>Pic</b> : <img src='" + response.data[0].images[1].source + "'/>";
+                document.getElementById("status").innerHTML += str;
+            });
+        });
+    }
+
+    function Logout() {
+        FB.logout(function() {
+            document.location.reload();
+        });
+    }
+
+    // Load the SDK asynchronously
+    (function(d) {
+        var js, id = 'facebook-jssdk',
+            ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+    </script>
+    <div align="center">
+        <h2>Facebook OAuth Javascript Demo</h2>
+        <div id="status">
+            Click on Below Image to start the demo:
+            <br/>
+            <img src="http://hayageek.com/examples/oauth/facebook/oauth-javascript/LoginWithFacebook.png" style="cursor:pointer;" onclick="Login()" />
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div id="message">
+            Logs:
+            <br/>
+        </div>
+    </div>
 </body>
+
 </html>
