@@ -86,8 +86,9 @@
                 FB.api("/" + response.data[i].id + "/photos", function(response){
                     for (var j = 0; j < response.data[i].length; j++){
                         if (response.data[i].tags[j].name == friendName){
-                            var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
-                            document.getElementById("status").innerHTML += str;
+                            //var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
+                            //document.getElementById("status").innerHTML += str;
+                            console.log("1");
                         }
                     }
                 });
