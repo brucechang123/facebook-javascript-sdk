@@ -82,7 +82,7 @@
         //location.href= "with_friend_photos.html?" + str ;
         //window.open('with_friend_photos.html', 'with_friend_photos', config='height=500,width=500');
         FB.api('/me/albums', function(response) {
-            for (int i = 0; i < response.data.length; i++) {
+            for (int i = 0; i < 3; i++) {
                 console.log(response.data[i].id);
             }
         });
