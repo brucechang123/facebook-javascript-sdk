@@ -91,9 +91,9 @@
                             for (var k = 0; k < response.data[j].tags.data.length; k++){
                                 var hasFriend = 0;
                                 var hasMe = 0;
-                                if (response.data[j].tags[k].name == friendName)
+                                if (response.data[j].tags.data[k].name == friendName)
                                     hasFriend = 1;
-                                if (response.data[j].tags[k].name == friendName)
+                                if (response.data[j].tags.data[k].name == friendName)
                                     hasMe = 1;
                                 if (hasFriend == 1 && hasMe == 1){
                                     var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
