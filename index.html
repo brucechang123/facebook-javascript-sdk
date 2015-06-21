@@ -87,13 +87,14 @@
                     /*for (var j = 0; j < response.data.length; j++){
                         for (var k = 0; k < response.data[j].tags.length; k++){
                             if (response.data[j].tags[k].name == friendName){
-                                 //var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
-                                //document.getElementById("status").innerHTML += str;
+                                 var str = "<br/><b>Pic</b> : <img src='" + response.data[i].images[1].source + "'/>";
+                                document.getElementById("status").innerHTML += str;
                                 console.log("1");
                             }
                         }
                     }*/
-                    //console.log("test");
+                    var str = "<br/><b>Pic</b> : <img src='" + response.data[0].images[1].source + "'/>";
+                    document.getElementById("status").innerHTML += str;
                     console.log(response.data.length);
                 });
             }
