@@ -79,9 +79,9 @@
 		var NewStringValue=document.getElementById("StringTextBox").value;
 		//var str = encodeURI(NewStringValue.toString());
 		//var str = "with_friend_photos.html?" + NewStringValue.toString();
-		var str = "with_friend_photos.html?" + NewStringValue +"";
+		var str = "with_friend_photos.html?" + NewStringValue + " ";
 		var url = encodeURI(str); 
-		document.getElementById("status").innerHTML+=url;
+		document.getElementById("status").innerHTML+=str;
 		//location.href=url;
 		//location.href= "with_friend_photos.html?" + str ;
 	}
